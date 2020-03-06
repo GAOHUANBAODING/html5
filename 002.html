@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息</title>
+    <style type="text/css">
+        fieldset{
+            width: 400px;
+            height: 520px;
+            margin: 0 auto;
+        }
+        input{
+            display: block;
+            width: 400px;
+            height: 30px;
+            margin-bottom: 10px;
+            font: 16px/30px arial;
+        }
+        legend{
+            color: red;
+            font-size: 20px;
+        }
+        meter{
+            width: 400px;
+            height: 30px;
+            margin-bottom: 10px;
+        }
+        div{
+            font-weight:bold;
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>学生信息</div>
+    <fieldset>
+        <legend>学生档案</legend>
+        <form id="testform" action="#S" method="get">
+            姓名：
+            <input type="text" name="uesrName" required autocomplete="on" autofocus="autofocus" placeholder="请输入姓名" />
+            学号：
+            <input type="number" name="studentid" required autocomplete="on" placeholder="请输入学号" />
+            手机号码：
+            <input type="tel" name="telphone" required autocomplete="on" placeholder="请输入手机号"/>
+            邮箱地址：
+            <input type="email" name="email"  required autocomplete="on" placeholder="请输入邮箱地址" />
+            录取学校：
+            <input type="search" name="school"  list="mylist"/>
+            <datalist id="mylist">
+                <option value="河北师范大学"></option>
+                <option value="湖北经济学院"></option>
+                <option value="华中农业大学"></option>
+                <option value="武汉轻工大学"></option>
+                <option value="武汉商贸学院"></option>
+            </datalist>
+            入学成绩：
+            <input type="number" name="grade"  min="0" max="750"  step="1" value="" />
+            入学时间：
+            <input type="date" name="datedemmo"/>
+            <input type="submit" value="提交" />
+        </form>
+    </fieldset>
+</body>
+</html>
