@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 1000px;
+            height: 300px;
+        }
+
+        legend {
+            color: red;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            width: 30px;
+            height: 30px;
+            margin: 0;
+        }
+
+        .a {
+            margin: 20px 20px 20px 20px;
+            width: 1000px;
+            height: 60px;
+            border-style: solid;
+            border-color: grey;
+        }
+
+        .b {
+            margin-top: 40px;
+            margin-left: 50px;
+            font-weight: bold;
+            font-size: 25px;
+            width: 900px;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>网页换肤</legend>
+        <div class="a">
+            <ul id="skin">
+                <li class="0" title="灰色" style="background-color: grey; margin-left:-15px;"></li>
+                <li class="1" title="紫色" style="background-color: purple; margin-left:20px;"></li>
+                <li class="2" title="红色" style="background-color: red; margin-left:20px;"></li>
+                <li class="3" title="天蓝色" style="background-color: skyblue; margin-left:20px;"></li>
+                <li class="4" title="橙色" style="background-color: orange; margin-left:20px;"></li>
+                <li class="5" title="淡绿色" style="background-color: lightgreen; margin-left:20px;"></li>
+            </ul>
+        </div>
+        <div id="div1" class="b">
+            LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，该数据依然存在，下次打开浏览器访问网站时仍然可以继续使用。
+        </div>
+    </fieldset>
+</body>
+<script>
+    var list = document.getElementsByTagName("li");
+    var div1 = document.getElementById("div1");
+    for (var i = 0; i < 6; i++) {
+        list[i].onclick = function () {
+            var m = this.className;
+            list[m].style.marginTop = "-8px";
+            for (var j = 0; j < 6; j++) {
+                if (j == m) {
+                    list[j].style.marginTop = "-8px";
+                } else {
+                    list[j].style.marginTop = "0px";
+                }
+            }
+            var color = this.style.backgroundColor;
+            div1.style.backgroundColor = color;
+            window.localStorage.setItem("class", m);
+            window.localStorage.setItem("backgroundColor", color);
+        }
+    }
+    var cla = localStorage.getItem("class");
+    var color = localStorage.getItem("backgroundColor");
+    if (!cla) {
+        div1.style.backgroundColor = "grey";
+        list[0].style.marginTop = "-8px";
+    } else {
+        div1.style.backgroundColor = color;
+        list[cla].style.marginTop = "-8px";
+    }
+</script>
+
+</html>
